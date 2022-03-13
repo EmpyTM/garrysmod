@@ -1,8 +1,10 @@
+-- TODO: use the player's steamID for the hue selection
+-- TODO: undecorate nick returns an unused color value that needs to be purged to prevent excess garbage
+
 if hooks.ShouldDrawNameTag then
 	hooks.ShouldDrawNameTag.tagremove = function() return false end
 end
 
--- TODO: use the player's steamID for the hue instead of a random value
 local function HueRand()
 	
 	local golden_ratio_conjugate = 0.6180339887
@@ -168,7 +170,7 @@ CreateClientConVar("nametags_font_alpha",
 	nametags_font_alpha_max
 )
 
--- we enclose everything here around a do .. end to make sure we can reload when finished, since this is called post-entity
+-- we enclose everything here around a do .. end to make sure we can reload when finished, since this script is called post-entity
 local ran = false
 do
 	hook.Add("AddToolMenuCategories", "nametags_category", function()
