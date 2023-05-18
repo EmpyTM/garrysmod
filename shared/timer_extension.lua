@@ -43,10 +43,11 @@ end
 
 timer.Adjust = function(identifier, delay, repetitions, func)
 	if timer.timers[identifier] then
+		local t = timer.timers[identifier]
 		local res = {
 			delay = delay,
-			repetitions = repetitions or timers[identifier].repetitions,
-			func = func or timers[identifier].func
+			repetitions = repetitions or t.repetitions,
+			func = func or t.func
 		}
 		timer.timers[identifier] = res
 	end
