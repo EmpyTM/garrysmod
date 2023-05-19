@@ -71,19 +71,14 @@ timer.Start = function(identifier)
 	return timer_start(identifier)
 end
 
-timer.GetTable = function()
-	return timer.timers
-end
+timer.GetTable = function() return timer.timers end
 
 timer.Status = function(identifier)
-	if not timer.timers[identifier] then return end
-	
-	return timer.timers[identifier].status
+	if timer.timers[identifier] then return timer.timers[identifier].status end
 end
 
 timer.Create("timer.timers", 1, 0, function()
 	for identifier in pairs(timer.timers) do
-		if timer.Exists(identifier) then continue end
-		timer.timers[identifier] = nil
+		if not timer.Exists(identifier) then timer.timers[identifier] = nil end
 	end
 end)
