@@ -8,7 +8,7 @@ local timer_start = timer_start or timer.Start
 
 timer.timers = timer.timers or {}
 
-timer.Create = function(identifier, delay, repetitions, func)
+function timer.Create(identifier, delay, repetitions, func)
 	local ret = {
 		delay = delay,
 		repetitions = repetitions,
@@ -20,20 +20,24 @@ timer.Create = function(identifier, delay, repetitions, func)
 	timer_create(identifier, delay, repetitions, func)
 end
 
-timer.Remove = function(identifier)
-	if timer.timers[identifier] then timer.timers[identifier] = nil end
+function timer.Remove(identifier)
+	if timer.timers[identifier] then
+		timer.timers[identifier] = nil
+	end
 	
 	timer_remove(identifier)
 end
 
-timer.Pause = function(identifier)
-	if not timer.timers[identifier] then return end
+function timer.Pause(identifier)
+	if not timer.timers[identifier] then
+		return
+	end
 	timer.timers[identifier].status = "paused"
 	
 	return timer_pause(identifier)
 end
 
-timer.UnPause = function(identifier)
+function timer.UnPause(identifier)
 	if timer.timers[identifier] then
 		timer.timers[identifier].status = "running"
 	end
@@ -41,13 +45,14 @@ timer.UnPause = function(identifier)
 	return timer_unpause(identifier)
 end
 
-timer.Adjust = function(identifier, delay, repetitions, func)
+function timer.Adjust(identifier, delay, repetitions, func)
 	if timer.timers[identifier] then
 		local t = timer.timers[identifier]
 		local res = {
 			delay = delay,
 			repetitions = repetitions or t.repetitions,
-			func = func or t.func
+			func = func or t.func,
+			status = t.status
 		}
 		timer.timers[identifier] = res
 	end
@@ -55,7 +60,7 @@ timer.Adjust = function(identifier, delay, repetitions, func)
 	return timer_adjust(identifier, delay, repetitions, func)
 end
 
-timer.Stop = function(identifier)
+function timer.Stop(identifier)
 	if timer.timers[identifier] then
 		timer.timers[identifier].status = "awaiting"
 	end
@@ -63,7 +68,7 @@ timer.Stop = function(identifier)
 	return timer_stop(identifier)
 end
 
-timer.Start = function(identifier)
+function timer.Start(identifier)
 	if timer.timers[identifier] then
 		timer.timers[identifier].status = "running"
 	end
@@ -71,14 +76,20 @@ timer.Start = function(identifier)
 	return timer_start(identifier)
 end
 
-timer.GetTable = function() return timer.timers end
+function timer.GetTable()
+	return timer.timers
+end
 
 timer.Status = function(identifier)
-	if timer.timers[identifier] then return timer.timers[identifier].status end
+	if timer.timers[identifier] then
+		return timer.timers[identifier].status
+	end
 end
 
 timer.Create("timer.timers", 1, 0, function()
 	for identifier in pairs(timer.timers) do
-		if not timer.Exists(identifier) then timer.timers[identifier] = nil end
+		if not timer.Exists(identifier) then
+			timer.timers[identifier] = nil
+		end
 	end
 end)
