@@ -1,7 +1,5 @@
 if not (SF and SF.Editor) then return end
 
-SF.Editor.color_schemes = SF.Editor.color_schemes or {}
-
 local gruvbox = {
 
     bg      = Color( 40,  40,  40), -- 282828
@@ -38,8 +36,6 @@ local gruvbox = {
     orange1 = Color(254, 128,  25)  -- FE8019
 
 }
-
-SF.Editor.color_schemes.gruvbox = gruvbox
 
 SF.Editor.Themes.AddTheme("gruvbox", {
 
