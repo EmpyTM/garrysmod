@@ -96,6 +96,7 @@ end
 
 function mediaplayer_playlists.Add( name )
 
+    if ( not is_filename_valid(name) ) then return end
     if ( mediaplayer_playlists.CurrentLists[name] ) then
         mediaplayer_playlists.Error("The playlist already exists")
         return
@@ -109,7 +110,7 @@ end
 function mediaplayer_playlists.PushURL( name, url )
 
     if ( not assert_playlist_exists(name) ) then return end
-    if (not assert_valid_url(url) ) then return end
+    if ( not assert_valid_url(url) ) then return end
 
     table.insert(mediaplayer_playlists.CurrentLists[name], url)
 
