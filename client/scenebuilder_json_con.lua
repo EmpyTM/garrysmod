@@ -23,12 +23,16 @@ for _, fo in ipairs(folders) do
 		model_info.min = mmin:ToTable()
 		model_info.max = mmax:ToTable()
 		model_info.skins = ent:SkinCount()
-		model_info.bodygroups = ent:GetNumBodyGroups()
 		model_info.path = path
 		model_info.control_points = {} -- sad
 
-		stuff[i] = stuff[i]:TrimRight(".mdl")
-		to_json[fo][stuff[i]] = model_info
+		local bodygroups = ent:GetNumBodyGroups()
+		if bodygroups > 1 then
+			model_info.bodygroups = bodygroups
+		end
+
+		local trimmed = stuff[i]:TrimRight(".mdl")
+		to_json[fo][trimmed] = model_info
 	end
 end
 
