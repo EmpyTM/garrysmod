@@ -10,26 +10,25 @@ for _, fo in ipairs(folders) do
 	to_json[fo] = {}
 	
 	local cur = ("%s/%s"):format(filepath, fo)
-	local stuff = file.Find(("%s/*"):format(cur), "GAME")
+	local stuff = file.Find(cur .. "/*", "GAME")
 
 	for i, v in ipairs(stuff) do
 		if v:EndsWith(".mdl") == false then continue end
 
-		ent = ClientsideModel(("%s/%s"):format(cur, v))
+		local path = ("%s/%s"):format(cur, v)
+		ent = ClientsideModel(path)
+
 		local model_info = {}
 		local mmin, mmax = ent:GetModelBounds()
 		model_info.min = mmin:ToTable()
 		model_info.max = mmax:ToTable()
 		model_info.skins = ent:SkinCount()
-		model_info.control_points = {}
-		
-		local bodygroups = ent:GetNumBodyGroups()
-		if bodygroups > 1 then
-			model_info.bodygroups = bodygroups
-		end
-		
-		local trimmed = stuff[i]:TrimRight(".mdl")
-		to_json[fo][trimmed] = model_info
+		model_info.bodygroups = ent:GetNumBodyGroups()
+		model_info.path = path
+		model_info.control_points = {} -- sad
+
+		stuff[i] = stuff[i]:TrimRight(".mdl")
+		to_json[fo][stuff[i]] = model_info
 	end
 end
 
