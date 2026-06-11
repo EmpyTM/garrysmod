@@ -947,6 +947,12 @@ dictionary = {
         ["type"] = room_type_sewer_system
     },
     [51] = {
+        ["bodygroup"] = {
+            [1] = {
+                ["id"] = 2,
+                ["count"] = 3
+            }
+        },
         ["connector"] = {
             [1] = {
                 ["pos"] = Vector(0, 60, -108),
