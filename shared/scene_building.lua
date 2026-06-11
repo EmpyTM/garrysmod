@@ -546,7 +546,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 68),
         ["mins"] = Vector(-48, -48, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_hall_3way.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_hall_3way.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
@@ -571,7 +571,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 68),
         ["mins"] = Vector(-48, -48, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_hall_4way.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_hall_4way.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
@@ -588,7 +588,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 68),
         ["mins"] = Vector(-48, -48, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_hall_corner.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_hall_corner.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
@@ -605,7 +605,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 66),
         ["mins"] = Vector(-48, -48, -70),
-        ["model"] = "models/scene_building/small_hallways/arch_small_door1.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_small_door1.mdl",
         ["offset"] = Vector(0, 0, -2),
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
@@ -623,7 +623,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 66),
         ["mins"] = Vector(-48, -48, -70),
-        ["model"] = "models/scene_building/small_hallways/arch_small_door2.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_small_door2.mdl",
         ["offset"] = Vector(0, 0, -2),
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
@@ -641,7 +641,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 48, 68),
         ["mins"] = Vector(-48, -48, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_small_hall.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_small_hall.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
@@ -658,7 +658,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 24, 68),
         ["mins"] = Vector(-48, -24, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_small_hall_med.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_small_hall_med.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
@@ -675,7 +675,7 @@ dictionary = {
         },
         ["maxs"] = Vector(48, 12, 68),
         ["mins"] = Vector(-48, -12, -68),
-        ["model"] = "models/scene_building/small_hallways/arch_small_hall_small.mdl",
+        ["model"] = "models/scene_building/sewer_system/arch_small_hall_small.mdl",
         ["skins"] = 5,
         ["type"] = room_type_small_hallways
     },
