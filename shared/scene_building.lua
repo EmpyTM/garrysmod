@@ -4,8 +4,8 @@
 
 module("scene_building", package.seeall)
 
-connector_room = 0
-connector_hall = 1
+connector_small_room = 0
+connector_small_hall = 1
 connector_sewer_beam = 2
 connector_sewer_tunnel = 3
 connector_sewer_arch = 4
